@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paint", "Paint.csproj", "{28399BFF-D302-43E4-B484-ACF87E3020AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "trapezoid_plagin", "Plagins_Code\trapezoid_plagin\trapezoid_plagin.csproj", "{80A85736-F69F-4E98-9ECD-06BEA2E86D4B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28399BFF-D302-43E4-B484-ACF87E3020AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28399BFF-D302-43E4-B484-ACF87E3020AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28399BFF-D302-43E4-B484-ACF87E3020AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28399BFF-D302-43E4-B484-ACF87E3020AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80A85736-F69F-4E98-9ECD-06BEA2E86D4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80A85736-F69F-4E98-9ECD-06BEA2E86D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80A85736-F69F-4E98-9ECD-06BEA2E86D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80A85736-F69F-4E98-9ECD-06BEA2E86D4B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF9D0226-736D-4FD7-B6E2-43E59018183F}
+	EndGlobalSection
+EndGlobal

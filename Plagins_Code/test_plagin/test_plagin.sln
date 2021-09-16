@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test_plagin", "test_plagin\test_plagin.csproj", "{A944F00F-E086-470F-894B-B435CCC64BBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A944F00F-E086-470F-894B-B435CCC64BBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A944F00F-E086-470F-894B-B435CCC64BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A944F00F-E086-470F-894B-B435CCC64BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A944F00F-E086-470F-894B-B435CCC64BBE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {790B0DDF-1BBA-4F7D-B015-A0301FA7FA50}
+	EndGlobalSection
+EndGlobal

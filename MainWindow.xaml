@@ -1,0 +1,188 @@
+﻿<Window x:Class="Paint.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Paint"
+        mc:Ignorable="d"
+        
+        Title="Paint" Height="700" Width="1200" WindowStyle="ThreeDBorderWindow">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="FileButton">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </Window.Resources>
+    <Grid Name ="myGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TabControl Grid.Row="0">
+            <TabItem>
+                <TabItem.Header >
+                    <TextBlock Text="Файл"></TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition MaxHeight="20"/>
+                        </Grid.RowDefinitions>
+
+                        <Button Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Top" Width="70" >
+                            <Image Source="Resources\new.jpg" RenderOptions.BitmapScalingMode="HighQuality"/>
+                        </Button>
+                        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.RowSpan="2">
+                            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                        </StackPanel>
+                        <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="70" Click="OpenCanvas_Click">
+                            <Image Source="Resources\open.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                        </Button>
+                        <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.RowSpan="2">
+                            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                        </StackPanel>
+                        <Button Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Width="70" Click="SaveCanvas_Click">
+                            <Image Source="Resources\save.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                        </Button>
+                        <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.RowSpan="2">
+                            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                        </StackPanel>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Создать" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="Открыть" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Row="1" Grid.Column="2" Text="Сохранить" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Главная"></TextBlock>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="140" />
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition MaxHeight="20"/>
+                    </Grid.RowDefinitions>
+
+                    <!--1////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+                    <GroupBox Grid.Row="0" Grid.Column="0" BorderBrush="White" >
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="-5 0 0 0">
+                            <Button x:Name="UnDo_Button" Height="20" Width="20" Background="White"  BorderBrush="White" Click="UnDo_Button_Click">
+                                <Image Source="Resources\prev.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                            </Button>
+                            <Button x:Name="ReDo_Button" Height="20" Width="20" Background="White" BorderBrush="White" Click="ReDo_Button_Click" >
+                                <Image Source="Resources\next.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                            </Button>
+                        </StackPanel>
+                    </GroupBox>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Буфер обмена" FontSize="10" Foreground="#7d7f7d" VerticalAlignment="Bottom" HorizontalAlignment="Center" />
+                    <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.RowSpan="2" Margin="-3 0 0 0">
+                        <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                    </StackPanel>
+
+                    <!--2////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+                    <GroupBox Grid.Row="0" Grid.Column="1" >
+                        <WrapPanel x:Name="ToolsList" Margin=" 0 2 0 0">
+                            <ToggleButton x:Name="Pen_Button" Width="20" Height="20" BorderBrush="White" Checked="Pen_Button_Checked" >
+                                <Image Source="Resources\pen.png"/>
+                            </ToggleButton>
+                            <ToggleButton Width="20" Height="20" BorderBrush="White" >
+                                <Image Source="Resources\eraser.png"/>
+                            </ToggleButton>
+                        </WrapPanel>
+                    </GroupBox>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="Инстурменты" FontSize="10" Foreground="#7d7f7d" VerticalAlignment="Bottom" HorizontalAlignment="Center" />
+                    <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.RowSpan="2" Margin="-3 0 0 0">
+                        <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                    </StackPanel>
+
+                    <!--3////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+                    <GroupBox Grid.Row="0" Grid.Column="2" >
+                        <WrapPanel x:Name="FiguresList" Margin=" 0 2 0 0" >
+                            <ToggleButton x:Name="Rectangle_Button" Width="20" Height="20" BorderBrush="White" Checked="ToggleButtons_Checked" Click="Rectangle_Button_Click">
+                                <Image Source="Resources\reg.png"/>
+                            </ToggleButton>
+                            <ToggleButton x:Name="Ellipse_Button" Width="20" Height="20" BorderBrush="White" Checked="ToggleButtons_Checked" Click="Ellipse_Button_Click">
+                                <Image Source="Resources\ellipse.png"/>
+                            </ToggleButton>
+                            <ToggleButton x:Name="Line_Button" Width="20" Height="20" BorderBrush="White" Checked="ToggleButtons_Checked" Click="Line_Button_Click">
+                                <Image Source="Resources\line.png"/>
+                            </ToggleButton>
+                            <ToggleButton x:Name="Polyline_Button" Width="20" Height="20" BorderBrush="White" Checked="ToggleButtons_Checked" Click="Polyline_Button_Click">
+                                <Image Source="Resources\Polyline.png"/>
+                            </ToggleButton>
+                            <ToggleButton x:Name="Polygon_Button" Width="20" Height="20" BorderBrush="White" Checked="ToggleButtons_Checked" Click="Polygon_Button_Click">
+                                <Image Source="Resources\Polygon.png"/>
+                            </ToggleButton>
+                            <ToggleButton x:Name="Add_plagin_Button" Width="20" Height="20" BorderBrush="White" Checked="ToggleButtons_Checked" Click="Add_plagin_Button_Click">
+                                <Image Source="Resources\add_plagin.png"/>
+                            </ToggleButton>
+                        </WrapPanel>
+                    </GroupBox>
+                    <TextBlock Grid.Row="1" Grid.Column="2" Text="Фигуры" FontSize="10" Foreground="#7d7f7d" VerticalAlignment="Bottom" HorizontalAlignment="Center" />
+                    <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.RowSpan="3" Margin="-3 0 0 0">
+                        <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                    </StackPanel>
+
+                    <!--4////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+                    <GroupBox Grid.Row="0" Grid.Column="3" BorderBrush="White">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="70" HorizontalAlignment="Center">
+                            <Button Height="60" Width="60" Background="White" VerticalAlignment="Top"  BorderBrush="White" Click="pColor_Button_Click">
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                                    <Rectangle x:Name="penColor"  Fill="Black" Height="35" Width="35" VerticalAlignment="Top" StrokeThickness="1" Stroke="Black" StrokeDashCap="Round"/>
+                                    <TextBlock Text="Контур" FontSize="11"/>
+                                </StackPanel>
+                            </Button>
+
+                            <Button Height="60" Width="60" Background="White" VerticalAlignment="Top"  BorderBrush="White" Click="bColor_Button_Click">
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                                    <Rectangle x:Name="brushColor" Fill="White" Height="35" Width="35" VerticalAlignment="Top" StrokeThickness="1" Stroke="Black" StrokeDashCap="Round"/>
+                                    <TextBlock Text="Заливка" FontSize="11"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </GroupBox>
+                    <TextBlock Grid.Row="1" Grid.Column="3" Text="Цвета" FontSize="10" Foreground="#7d7f7d" VerticalAlignment="Bottom" HorizontalAlignment="Center"  />
+                    <StackPanel Orientation="Horizontal" Grid.Column="4" Grid.RowSpan="2" Margin="-3 0 0 0">
+                        <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                    </StackPanel>
+
+
+                    <Slider x:Name="penSize" Grid.Row="0" Grid.Column="4" Minimum="0" Maximum="20" Margin="3 0 3 0" ValueChanged="penSize_ValueChanged" ></Slider>
+                    <TextBlock Grid.Row="1" Grid.Column="4" Text="Толщина" FontSize="10" Foreground="#7d7f7d" VerticalAlignment="Bottom" HorizontalAlignment="Center"  />
+                    <StackPanel Orientation="Horizontal" Grid.Column="5" Grid.RowSpan="2" Margin="-3 0 0 0">
+                        <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                    </StackPanel>
+                    
+                </Grid>
+
+            </TabItem>
+            
+        </TabControl>
+
+        <Canvas x:Name="MyCanvas" Grid.Row="1" Background="White" MouseLeftButtonDown="MyCanvas_MouseLeftButtonDown" MouseMove="MyCanvas_MouseMove" MouseRightButtonDown="MyCanvas_MouseRightButtonDown" >
+        </Canvas>
+
+    </Grid>
+
+</Window>
